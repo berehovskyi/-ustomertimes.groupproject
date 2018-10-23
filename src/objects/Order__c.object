@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Customer orders</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Description of the order</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of the order</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Order_Total__c</fullName>
+        <description>Total invoice value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total invoice value</inlineHelpText>
+        <label>Order Total</label>
+        <summarizedField>Order_Line_Item__c.Total_Price__c</summarizedField>
+        <summaryForeignKey>Order_Line_Item__c.Order__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Pending for Payment</fullName>
+                    <default>false</default>
+                    <label>Pending for Payment</label>
+                </value>
+                <value>
+                    <fullName>Paid</fullName>
+                    <default>false</default>
+                    <label>Paid</label>
+                </value>
+                <value>
+                    <fullName>Payment Review</fullName>
+                    <default>false</default>
+                    <label>Payment Review</label>
+                </value>
+                <value>
+                    <fullName>Closed Won</fullName>
+                    <default>false</default>
+                    <label>Closed Won</label>
+                </value>
+                <value>
+                    <fullName>Shipped</fullName>
+                    <default>false</default>
+                    <label>Shipped</label>
+                </value>
+                <value>
+                    <fullName>Closed Lost</fullName>
+                    <default>false</default>
+                    <label>Closed Lost</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Timestamp__c</fullName>
+        <defaultValue>NOW()</defaultValue>
+        <description>Date/Time of order creation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date/Time of order creation</inlineHelpText>
+        <label>Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <label>Order</label>
+    <nameField>
+        <displayFormat>ORD-{000000}</displayFormat>
+        <label>Order Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Orders</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
