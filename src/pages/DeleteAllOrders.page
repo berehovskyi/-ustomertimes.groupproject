@@ -1,0 +1,9 @@
+<!--
+ - Created by Yehor Dobrovolskyi on 24.10.2018.
+ -->
+
+<apex:page id="DeleteAllOrders" controller="DeleteAllOrdersController">
+    <apex:form>
+        <apex:commandButton action="{!deleteAllOrders}" value="Delete All Orders"/>
+    </apex:form>
+</apex:page>
