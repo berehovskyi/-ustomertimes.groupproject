@@ -1,0 +1,22 @@
+<!--
+ - Created by Yehor Dobrovolskyi on 24.10.2018.
+ -->
+
+<aura:component description="protuctTitle">
+    <aura:attribute name="product" type="Product__c"/>
+    <aura:attribute name="selected" type="Boolean" default="false"/>
+
+    <aura:registerEvent name="productSelect" type="c:productSelect"/>
+    <aura:registerEvent name="productSelected" type="c:productSelected"/>
+
+    <aura:method name="productselected" action="{!c.onBoatClick}" />
+
+    <lightning:button name="{!v.product.Name}" class="{!v.selected == true ?
+            'tile selected' : 'tile'}" onclick="{!c.onBoatClick}" aura:id="selectbutton">
+        <div id="boatimage" style="{! 'background-image:url(\'' + v.boat.Picture__c + '\'); '}" class="innertile">
+            <div class="lower-third">
+                <h1 class="slds-truncate"><ui:outputText aura:id="contact" value="{!v.boat.Contact__r.Name}" /></h1>
+            </div>
+        </div>
+    </lightning:button>
+</aura:component>
