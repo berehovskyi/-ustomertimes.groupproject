@@ -9,7 +9,8 @@ public with sharing class ProductListController {
         checkFieldsAccessibility();
         return [
                 SELECT Brand__c, Name, Price__c, Quantity__c, Category__c,
-                       Screen_Size__c,  Resolution__c, Description__c
+                       Screen_Size__c,  Resolution__c, Description__c,
+                (SELECT ContentDocument.LatestPublishedVersionId FROM ContentDocumentLinks LIMIT 1)
                 FROM Product__c
         ];
     }

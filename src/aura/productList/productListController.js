@@ -8,6 +8,7 @@
             var state = response.getState();
             if (state === 'SUCCESS') {
                 component.set('v.items', response.getReturnValue());
+                console.log(response.getReturnValue());
             } else {
                 console.log('Failed with state: ', state);
             }

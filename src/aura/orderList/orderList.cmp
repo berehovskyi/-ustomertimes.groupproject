@@ -1,0 +1,7 @@
+<!--
+ - Created by oberegovskyi on 24-Oct-18.
+ -->
+
+<aura:component description="orderList">
+    <h1>This is test Order List</h1>
+</aura:component>

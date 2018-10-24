@@ -3,4 +3,21 @@
  -->
 
 <aura:component description="productHeader">
+    <aura:attribute name="category" type="String" default="Universal"/>
+    <!--<aura:registerEvent name="updateCategory" type="component">-->
+
+    <lightning:layout class="slds-box_border slds-m-around--small">
+        <lightning:layoutItem size="2" flexibility="auto" padding="around-medium" class="slds-box_border">
+            <lightning:button variant="neutral" value="Universal" label="Universal" onclick="{!c.getUniversalItems}"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="2" flexibility="auto" padding="around-medium" class="slds-box_border">
+            <lightning:button variant="neutral" value="Gaming" label="Gaming" onclick="{!c.getUniversalItems}"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="2" flexibility="auto" padding="around-medium" class="slds-box_border">
+            <lightning:button variant="neutral" value="Business" label="Business" onclick="{!c.getUniversalItems}"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="2" flexibility="auto" padding="around-medium" class="slds-box_border">
+            <lightning:button variant="neutral" value="Budget" label="Budget" onclick="{!c.getUniversalItems}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
 </aura:component>
