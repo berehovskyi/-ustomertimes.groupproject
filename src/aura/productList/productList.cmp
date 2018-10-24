@@ -1,0 +1,14 @@
+<!--
+ - Created by oberegovskyi on 24-Oct-18.
+ -->
+
+<aura:component controller="ProductListController">
+
+    <aura:attribute name="items" type="Product__c" />
+    <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
+
+    <aura:iteration items="{!v.items}" var="item">
+        <c:productListItem item="{!item}"/>
+    </aura:iteration>
+
+</aura:component>
