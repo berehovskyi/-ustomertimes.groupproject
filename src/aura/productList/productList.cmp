@@ -5,10 +5,13 @@
 <aura:component controller="ProductListController" implements="forceCommunity:availableForAllPageTypes" access="global">
 
     <aura:attribute name="items" type="Product__c"/>
+    <aura:attribute name="category" type="String"/>
+    <aura:attribute name="countItemsByCategory" type="String[]"/>
     <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
-    <aura:handler event="c:categoryUpdate" action="{!c.onInit}"/>
+    <aura:handler name="categoryUpdated" event="c:categoryUpdatedEvent" action="{!c.updateCategory}"/>
 
     <c:productHeader/>
+    <p>{!v.category}</p>
 
     <lightning:layout>
         <lightning:layoutItem size="8">

@@ -1,0 +1,7 @@
+<!--
+ - Created by oberegovskyi on 25-Oct-18.
+ -->
+
+<aura:event type="COMPONENT">
+    <aura:attribute name="category" type="String" default="Universal"/>
+</aura:event>
