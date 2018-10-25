@@ -10,11 +10,10 @@
     <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
     <aura:handler name="categoryUpdated" event="c:categoryUpdatedEvent" action="{!c.updateCategory}"/>
 
-    <c:productHeader/>
-    <p>{!v.category}</p>
-
     <lightning:layout>
         <lightning:layoutItem size="8">
+            <c:productHeader countCategoryItems="{!v.countItemsByCategory}"/>
+            <p>{!v.category}</p>
             <lightning:layout multipleRows="true">
                 <aura:iteration items="{!v.items}" var="item">
                     <lightning:layoutItem size="4" flexibility="auto" padding="around-small">

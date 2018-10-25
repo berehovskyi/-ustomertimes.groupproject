@@ -3,11 +3,11 @@
  -->
 
 <aura:component description="productHeader">
-    <!--<aura:attribute name="category" type="String" default="Universal"/>-->
+    <aura:attribute name="countCategoryItems" type="String[]"/>
     <aura:registerEvent name="categoryUpdated" type="c:categoryUpdatedEvent"/>
 
     <lightning:layout>
-        <lightning:layoutItem size="8">
+        <lightning:layoutItem size="12">
             <lightning:card>
                 <aura:set attribute="title">
                     <h1 class="slds-text-heading--large slds-align_absolute-center slds-border_bottom">LAPTOPS</h1>
@@ -21,38 +21,38 @@
         </lightning:layoutItem>
     </lightning:layout>
     <lightning:layout class="slds-p-around--small">
-         <lightning:layoutItem size="2" flexibility="auto" padding="around-medium">
+         <lightning:layoutItem size="3" flexibility="auto" padding="around-medium">
             <lightning:card>
                 <img src="/sfc/servlet.shepherd/version/download/0681t000000cUiEAAU"/>
-                <lightning:button class="slds-align_absolute-center" variant="neutral" value="Universal" label="Universal" onclick="{!c.fireEvent}"/>
+                <lightning:button class="slds-align_absolute-center" variant="neutral" value="Universal" label="{!'Universal (' + v.countCategoryItems[0] + ')'}" onclick="{!c.fireEvent}"/>
                 <lightning:helptext class="slds-align_absolute-center" iconName="utility:chevrondown"
                                     content="This kind of laptop will serve you well for every common task as well as for older games on high settings, and you can expect it to
                                     play most new games on at least medium settings for the next couple of years. They’re ideal for gamers with tighter budgets, especially students."/>
             </lightning:card>
         </lightning:layoutItem>
-        <lightning:layoutItem size="2" flexibility="auto" padding="around-medium">
+        <lightning:layoutItem size="3" flexibility="auto" padding="around-medium">
             <lightning:card>
                 <img src="/sfc/servlet.shepherd/version/download/0681t000000cUjMAAU"/>
-                <lightning:button class="slds-align_absolute-center" variant="neutral" value="Game" label="Gaming" onclick="{!c.fireEvent}"/>
+                <lightning:button class="slds-align_absolute-center" variant="neutral" value="Game" label="{!'Gaming (' + v.countCategoryItems[1] + ')'}" onclick="{!c.fireEvent}"/>
                 <lightning:helptext class="slds-align_absolute-center" iconName="utility:chevrondown"
                                     content="Gaming laptops all feature high-performance processors and dedicated graphics cards, so you can run the latest and greatest PC games.
                                     So whether you’re a first time gamer or a seasoned pro, you’ll be able to find a gaming laptop with the best features for your budget."/>
             </lightning:card>
         </lightning:layoutItem>
-        <lightning:layoutItem size="2" flexibility="auto" padding="around-medium">
+        <lightning:layoutItem size="3" flexibility="auto" padding="around-medium">
             <lightning:card>
                 <img src="/sfc/servlet.shepherd/version/download/0681t000000cUkKAAU"/>
-                <lightning:button class="slds-align_absolute-center" variant="neutral" value="Business" label="Business" onclick="{!c.fireEvent}"/>
+                <lightning:button class="slds-align_absolute-center" variant="neutral" value="Business" label="{!'Business (' + v.countCategoryItems[2] + ')'}" onclick="{!c.fireEvent}"/>
                 <lightning:helptext class="slds-align_absolute-center" iconName="utility:chevrondown"
                                     content="Our business laptops utilize the highest quality of production, care, and exceptional support.
                                     We strongly believe in solutions that do not require compromise and that means using parts that deliver the power necessary to handle
                                     virtually any task your business demands when working with industry standard software such as 3ds Max, Photoshop, and AutoCAD."/>
             </lightning:card>
         </lightning:layoutItem>
-        <lightning:layoutItem size="2" flexibility="auto" padding="around-medium">
+        <lightning:layoutItem size="3" flexibility="auto" padding="around-medium">
             <lightning:card>
                 <img src="/sfc/servlet.shepherd/version/download/0681t000000cUl8AAE"/>
-                <lightning:button class="slds-align_absolute-center" variant="neutral" value="Budget" label="Budget" onclick="{!c.fireEvent}"/>
+                <lightning:button class="slds-align_absolute-center" variant="neutral" value="Budget" label="{!'Budget (' + v.countCategoryItems[3] + ')'}" onclick="{!c.fireEvent}"/>
                 <lightning:helptext class="slds-align_absolute-center" iconName="utility:chevrondown"
                                     content="If you need a laptop for home, work, or school—and you can’t afford to spend a lot—you can find a good one in this section.
                                     They’re ideal for K–12 students, people on a strict budget, and people who use their computers mostly at home in the evenings for schoolwork, Web

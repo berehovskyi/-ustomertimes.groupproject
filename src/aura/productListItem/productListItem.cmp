@@ -23,7 +23,11 @@
             </p>
         </p>
         <p class="slds-p-around--small slds-align_absolute-center">
-            <lightning:button label="Product Information" variant="brand" iconName="action:info" onclick="{!c.showInfo}"/>
+            <c:modalDescription brand="{!v.item.Brand__c}"
+                                name="{!v.item.Name}"
+                                image="{!v.item.ContentDocumentLinks[0].ContentDocument.LatestPublishedVersionId}"
+                                description="{!v.item.Description__c}"
+            />
         </p>
 
         <p class="slds-align-content-center slds-align_absolute-center">
@@ -36,6 +40,9 @@
                 </lightning:layoutItem>
             </lightning:layout>
         </p>
+
+
+
         <aura:set attribute="footer">
             <p class="slds-text-heading--large slds-text-color--error">
                 <lightning:formattedNumber value="{!v.item.Price__c}" currencyCode="EUR" style="currency" maximumFractionDigits="0" minimumFractionDigits="0"/>
