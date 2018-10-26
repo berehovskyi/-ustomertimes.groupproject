@@ -7,7 +7,7 @@
         var componentEvent = component.getEvent("deleteFromOrder");
         var item = component.get("v.item");
         console.log('current item passed through event: ', item);
-        componentEvent.setParams({'v.orderItemToDelete': item});
+        componentEvent.setParams({'orderItemToDelete': item});
         componentEvent.fire();
     }
 });
