@@ -11,10 +11,10 @@
                 component.set('v.items', responseMap);
                 var countItemsByCategory = [
                     responseMap.filter(value => value.Category__c === 'Universal').length,
-                responseMap.filter(value => value.Category__c === 'Game').length,
-                responseMap.filter(value => value.Category__c === 'Business').length,
-                responseMap.filter(value => value.Category__c === 'Budget').length
-            ];
+                    responseMap.filter(value => value.Category__c === 'Game').length,
+                    responseMap.filter(value => value.Category__c === 'Business').length,
+                    responseMap.filter(value => value.Category__c === 'Budget').length
+                ];
                 component.set('v.countItemsByCategory', countItemsByCategory);
                 console.log(countItemsByCategory);
                 console.log(response.getReturnValue());

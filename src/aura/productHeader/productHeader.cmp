@@ -3,7 +3,7 @@
  -->
 
 <aura:component description="productHeader">
-    <aura:attribute name="countCategoryItems" type="String[]"/>
+    <aura:attribute name="countCategoryItems" type="Integer[]"/>
     <aura:attribute name="currentCategory" type="String"/>
     <aura:registerEvent name="categoryUpdated" type="c:categoryUpdatedEvent"/>
 

@@ -11,4 +11,9 @@
         helper.loadDataByCategory(component);
     },
 
+    handleAddToCart: function (component, event, helper) {
+        event.getParam('')
+        console.log('Inside add to cart handler');
+    }
+
 });

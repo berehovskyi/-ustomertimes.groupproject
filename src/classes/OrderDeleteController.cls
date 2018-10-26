@@ -4,8 +4,8 @@
 
 public with sharing class OrderDeleteController {
 
-    @AuraEnabled
-    public static void deleteAllOrders() {
+
+    public void deleteAllOrders() {
         List<Order__c> orders = [
                 SELECT Id
                 FROM Order__c

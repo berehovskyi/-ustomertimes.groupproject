@@ -1,0 +1,6 @@
+<!--
+ - Created by oberegovskyi on 26-Oct-18.
+ -->
+
+<aura:component description="orderListItem">
+</aura:component>

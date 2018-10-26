@@ -4,7 +4,8 @@
 
 public class DeleteAllOrdersController {
 
-    public void deleteAllOrders() {
+    @AuraEnabled
+    public static void deleteAllOrders() {
         List<Order__c> orders = [
                 SELECT Id
                 FROM Order__c

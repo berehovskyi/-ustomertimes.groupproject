@@ -5,6 +5,7 @@
 <aura:component description="productListItem">
     <aura:attribute name="item" type="Product__c" required="true"/>
     <aura:attribute name="amount" type="Integer" default="0"/>
+    <aura:registerEvent name="addToCart" type="c:addToCartEvent"/>
 
     <lightning:card>
         <aura:set attribute="title">
