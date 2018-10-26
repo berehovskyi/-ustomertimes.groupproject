@@ -3,5 +3,5 @@
  -->
 
 <aura:event type="COMPONENT">
-    <aura:attribute name="category" type="String" default="Universal"/>
+    <aura:attribute name="category" type="String"/>
 </aura:event>

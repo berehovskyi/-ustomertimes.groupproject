@@ -5,21 +5,21 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
     <lightning:carousel disableAutoScroll="false" disableAutoRefresh="false">
         <lightning:carouselImage
-                src = "{!$Resource.banners + '/3.jpg'}"
+                src = "{!$Resource.banner + '/3.jpg'}"
                 header = "First Card"
                 description = "First card description."
                 alternativeText = "First card accessible description."
                 href = "https://www.salesforce.com">
         </lightning:carouselImage>
         <lightning:carouselImage
-                src = "{!$Resource.banners + '/4.jpg'}"
+                src = "{!$Resource.banner + '/4.jpg'}"
                 header = "Second Card"
                 description = "Second card description."
                 alternativeText = "Second card accessible description."
                 href = "https://www.salesforce.com">
         </lightning:carouselImage>
         <lightning:carouselImage
-                src = "{!$Resource.banners + '/5.jpg'}"
+                src = "{!$Resource.banner + '/5.jpg'}"
                 header = "Third Card"
                 description = "Third card description."
                 alternativeText = "Third card accessible description."

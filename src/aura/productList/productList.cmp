@@ -3,20 +3,19 @@
  -->
 
 <aura:component controller="ProductListController" implements="forceCommunity:availableForAllPageTypes" access="global">
-
-    <aura:attribute name="items" type="Product__c"/>
+    <aura:attribute name="items" type="Product__c[]"/>
     <aura:attribute name="category" type="String"/>
     <aura:attribute name="countItemsByCategory" type="String[]"/>
+
     <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
-    <aura:handler name="categoryUpdated" event="c:categoryUpdatedEvent" action="{!c.updateCategory}"/>
+    <aura:handler name="categoryUpdated" event="c:categoryUpdatedEvent" action="{!c.handleUpdateCategory}"/>
 
     <lightning:layout>
         <lightning:layoutItem size="8">
             <c:productHeader countCategoryItems="{!v.countItemsByCategory}"/>
-            <p>{!v.category}</p>
             <lightning:layout multipleRows="true">
                 <aura:iteration items="{!v.items}" var="item">
-                    <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
+                    <lightning:layoutItem size="4" flexibility="no-flex" padding="around-small">
                         <c:productListItem item="{!item}"/>
                     </lightning:layoutItem>
                 </aura:iteration>
