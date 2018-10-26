@@ -3,4 +3,48 @@
  -->
 
 <aura:component description="orderListItem">
+    <aura:attribute name="item" type="Order_Line_Item__c"/>
+    <aura:registerEvent name="deleteFromOrder" type="c:deleteFromOrderEvent"/>
+
+    <lightning:card>
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="3" padding="around-small">
+                <img src="{! '/sfc/servlet.shepherd/version/download/' + v.item.Image__c}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="9" class="slds-border_bottom" padding="around-small">
+                <lightning:formattedText value="{!v.item.Brand__c + ' ' + v.item.Name}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" class="slds-border_bottom" padding="around-small">
+                <lightning:icon iconName="custom:custom113" size="small" class="slds-m-right--small"/>
+                <lightning:formattedText value="Category:"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" class="slds-border_bottom" padding="around-small">
+                <lightning:icon iconName="custom:custom41" size="small" class="slds-hidden"/>
+                <lightning:formattedText value="{!v.item.Category__c}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" class="slds-border_bottom" padding="around-small">
+                <lightning:icon iconName="custom:custom41" size="small" class="slds-m-right--small"/>
+                <lightning:formattedText value="Price:"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" class="slds-border_bottom slds-text-color--error" padding="around-small">
+                <lightning:icon iconName="custom:custom41" size="small" class="slds-hidden"/>
+                <lightning:formattedNumber value="{!v.item.Price__c}" style="currency"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="7" class="slds-border_bottom slds-text-color_success" padding="around-small">
+                <lightning:icon iconName="custom:custom86" size="small" class="slds-m-right--small"/>
+                <lightning:formattedText value="Desired Quantity:"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="3" padding="around-small">
+                <lightning:input type="number" name="quantity" variant="label-hidden" label="quantity"
+                                 value="{!v.item.Quantity__c}" min="0" max="9999"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" class="slds-grid_align-end" padding="around-small">
+                <!--Optional element can be set here-->
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" class="slds-float--right" padding="around-small">
+                <lightning:button class="slds-float_right" iconName="action:close" name="clear" label="Remove"
+                                  value="Remove" variant="destructive" onclick="{!c.removeFromOrder}"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
 </aura:component>

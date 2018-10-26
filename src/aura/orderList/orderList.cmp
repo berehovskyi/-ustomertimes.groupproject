@@ -3,9 +3,27 @@
  -->
 
 <aura:component description="orderList">
-    <aura:attribute name="childOrders" type="Order_Line_Item__c[]" default=""/>
-    <h1>hello</h1>
-    <p>{!v.childOrders[0].Name}</p>
-    <h1>This is test Order List</h1>
+    <aura:attribute name="childOrders" type="Order_Line_Item__c[]"/>
+    <aura:attribute name="totalPrice" type="Integer"/>
+
+    <aura:handler name="deleteFromOrder" event="c:deleteFromOrderEvent" action="{!c.handleDeleteFromOrder}"/>
+
+    <aura:if isTrue="{!v.childOrders.length}">
+        <lightning:layout multipleRows="true" class="slds-p-around--large">
+            <lightning:formattedText value="Please review your basket" class="slds-text-heading--large slds-text-color--error slds-align_absolute-center"/>
+            <lightning:formattedText value="Select from the options below for your chosen items:" class="slds-p-around--small slds-text-body_regular slds-align_absolute-center"/>
+            <aura:iteration items="{!v.childOrders}" var="order">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <c:orderListItem item="{!order}"/>
+                </lightning:layoutItem>
+            </aura:iteration>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <div class="slds-float--right slds-border--top">
+                    <lightning:formattedText value="Total Price: "/>
+                    <lightning:formattedNumber value="{!v.childOrders[0].Price__c}"/>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
 </aura:component>
 

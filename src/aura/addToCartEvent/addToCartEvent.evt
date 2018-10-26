@@ -3,5 +3,5 @@
  -->
 
 <aura:event type="COMPONENT" description="addToCartEvent">
-    <aura:attribute name="orderItem" type="Order_Line_Item__c"/>
+    <aura:attribute name="orderItem" type="Order_Line_Item__c" default="{'sobjectType':'Order_Line_Item__c'}"/>
 </aura:event>
