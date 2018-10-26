@@ -6,6 +6,7 @@
     <aura:attribute name="items" type="Product__c[]"/>
     <aura:attribute name="category" type="String"/>
     <aura:attribute name="countItemsByCategory" type="String[]"/>
+    <aura:attribute name="orders" type="Order_Line_Item__c[]"/>
 
     <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
     <aura:handler name="categoryUpdated" event="c:categoryUpdatedEvent" action="{!c.handleUpdateCategory}"/>
@@ -23,7 +24,7 @@
             </lightning:layout>
         </lightning:layoutItem>
         <lightning:layoutItem size="4">
-            <c:orderList/>
+            <c:orderList childOrders="{!v.orders}"/>
         </lightning:layoutItem>
     </lightning:layout>
 

@@ -3,5 +3,9 @@
  -->
 
 <aura:component description="orderList">
+    <aura:attribute name="childOrders" type="Order_Line_Item__c[]" default=""/>
+    <h1>hello</h1>
+    <p>{!v.childOrders[0].Name}</p>
     <h1>This is test Order List</h1>
 </aura:component>
+

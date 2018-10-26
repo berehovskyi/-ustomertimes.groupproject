@@ -4,7 +4,7 @@
 
 <aura:component description="productListItem">
     <aura:attribute name="item" type="Product__c" required="true"/>
-    <aura:attribute name="amount" type="Integer" default="0"/>
+    <!--<aura:attribute name="amount" type="Integer" default="0"/>-->
     <aura:registerEvent name="addToCart" type="c:addToCartEvent"/>
 
     <lightning:card>
@@ -37,7 +37,7 @@
                     <lightning:button label="Add to Cart" variant="success" iconName="custom:custom93" onclick="{!c.addToCart}"/>
                 </lightning:layoutItem>
                 <lightning:layoutItem size="4" padding="around-small">
-                    <lightning:input type="number" value="{!v.amount}" name="amount" label="label" variant="label-hidden"/>
+                    <lightning:input aura:id="inputNumber" type="number" name="amount" label="label" variant="label-hidden" min="0" max="9999"/>
                 </lightning:layoutItem>
             </lightning:layout>
         </p>
