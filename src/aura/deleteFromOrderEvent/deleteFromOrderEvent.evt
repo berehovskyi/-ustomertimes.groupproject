@@ -3,5 +3,5 @@
  -->
 
 <aura:event type="COMPONENT" description="deleteFromOrderEvent">
-    <aura:attribute name="orderItemToDelete" type="Order_Line_Item__c"/>
+    <aura:attribute name="index" type="String"/>
 </aura:event>

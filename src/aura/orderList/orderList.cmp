@@ -7,21 +7,29 @@
     <aura:attribute name="totalPrice" type="Integer"/>
 
     <aura:handler name="deleteFromOrder" event="c:deleteFromOrderEvent" action="{!c.handleDeleteFromOrder}"/>
+    <aura:handler name="change" value="{!v.childOrders}" action="{!c.recalculateTotalPrice}"/>
 
     <aura:if isTrue="{!v.childOrders.length}">
-        <lightning:layout multipleRows="true" class="slds-p-around--large">
+        <lightning:layout multipleRows="true" class="slds-m-around--large">
             <lightning:formattedText value="Please review your basket" class="slds-text-heading--large slds-text-color--error slds-align_absolute-center"/>
             <lightning:formattedText value="Select from the options below for your chosen items:" class="slds-p-around--small slds-text-body_regular slds-align_absolute-center"/>
-            <aura:iteration items="{!v.childOrders}" var="order">
+            <aura:iteration items="{!v.childOrders}" var="order" indexVar="indexVar">
                 <lightning:layoutItem flexibility="auto" padding="around-small">
-                    <c:orderListItem item="{!order}"/>
+                    <c:orderListItem item="{!order}"
+                                     index="{!indexVar}"/>
                 </lightning:layoutItem>
             </aura:iteration>
             <lightning:layoutItem flexibility="auto" padding="around-small">
-                <div class="slds-float--right slds-border--top">
+                <div class="slds-float--right slds-border--top slds-text-heading--large slds-text-color_destructive">
                     <lightning:formattedText value="Total Price: "/>
-                    <lightning:formattedNumber value="{!v.childOrders[0].Price__c}"/>
+                    <lightning:formattedNumber value="{!v.totalPrice}" style="currency" currencyCode="EUR"/>
                 </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <lightning:button value="Clear" iconName="action:delete" label="Clear the Basket" variant="destructive"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="shrink" padding="around-small">
+                <lightning:button value="Order Now" iconName="action:approval" label="ORDER NOW" variant="success" class=""/>
             </lightning:layoutItem>
         </lightning:layout>
     </aura:if>

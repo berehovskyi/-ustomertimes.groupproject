@@ -4,12 +4,11 @@
 
 <aura:component description="productListItem">
     <aura:attribute name="item" type="Product__c" required="true"/>
-    <!--<aura:attribute name="amount" type="Integer" default="0"/>-->
     <aura:registerEvent name="addToCart" type="c:addToCartEvent"/>
 
     <lightning:card>
         <aura:set attribute="title">
-            {!v.item.Brand__c}
+            <lightning:formattedText value="{!v.item.Brand__c}"/>
         </aura:set>
         <p class="slds-p-around--small">
             <lightning:formattedText value="{!v.item.Name}"/>
@@ -37,16 +36,13 @@
                     <lightning:button label="Add to Cart" variant="success" iconName="custom:custom93" onclick="{!c.addToCart}"/>
                 </lightning:layoutItem>
                 <lightning:layoutItem size="4" padding="around-small">
-                    <lightning:input aura:id="inputNumber" type="number" name="amount" label="label" variant="label-hidden" min="0" max="9999"/>
+                    <lightning:input aura:id="inputNumber" type="number" name="amount" label="label" variant="label-hidden" min="1" max="9999"/>
                 </lightning:layoutItem>
             </lightning:layout>
         </p>
-
-
-
         <aura:set attribute="footer">
             <p class="slds-text-heading--large slds-text-color--error">
-                <lightning:formattedNumber value="{!v.item.Price__c}" currencyCode="EUR" style="currency" maximumFractionDigits="0" minimumFractionDigits="0"/>
+                <lightning:formattedNumber value="{!v.item.Price__c}" currencyCode="EUR" style="currency" maximumFractionDigits="0" minimumFractionDigits="2"/>
             </p>
         </aura:set>
     </lightning:card>
