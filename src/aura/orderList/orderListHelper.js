@@ -34,8 +34,9 @@
         toastEvent.setParams({
             mode: 'sticky',
             type: 'success',
+            title: 'Thank You for Your Order',
             message: 'This is a required message',
-            messageTemplate: 'Thank You for Your Purchase. ' +
+            messageTemplate:
                 'Please follow instructions specified in email which has recently sent to complete the purchase. ' +
                 'Best Regards, Customer Times Online Store',
             messageTemplateData: ['Salesforce', {
@@ -50,8 +51,9 @@
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
             mode: 'sticky',
-            type: 'success',
-            message: response.getReturnValue()
+            type: 'error',
+            title: 'Server Error',
+            message: response.getError()[0].message
         });
         toastEvent.fire();
     },
@@ -83,7 +85,8 @@
                 self.clearCart(component);
                 self.showThankfulToast();
             } else {
-                console.log('Failed with state: ', response.getReturnValue());
+                self.showErrorToast(response);
+                console.log('Failed with error: ', response.getError());
             }
         });
         $A.enqueueAction(saveOrderMethod);
