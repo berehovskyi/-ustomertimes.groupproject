@@ -3,7 +3,7 @@
  -->
 
 <aura:component description="modalDescription">
-    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="isOpen" type="Boolean" default="false"/>
     <aura:attribute name="brand" type="String"/>
     <aura:attribute name="name" type="String"/>
     <aura:attribute name="image" type="String"/>

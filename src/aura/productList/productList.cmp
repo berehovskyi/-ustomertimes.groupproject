@@ -27,5 +27,4 @@
             <c:orderList childOrders="{!v.orders}"/>
         </lightning:layoutItem>
     </lightning:layout>
-
 </aura:component>

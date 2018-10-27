@@ -6,6 +6,9 @@
         var componentEvent = component.getEvent('addToCart');
         var item = component.get("v.item");
         var inputNumber = component.find('inputNumber').get('v.value');
+        if (inputNumber === '') {
+            inputNumber = 1;
+        }
         console.log('inputNumber is: ', inputNumber);
         componentEvent.setParams({
             "orderItem": {

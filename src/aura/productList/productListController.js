@@ -19,7 +19,6 @@
         console.log('input field value after reset', inputField.get('v.value'));
         console.log('orderItem: ', orderItem);
         console.log('Inside add to cart handler');
-
         var orders = component.get('v.orders');
         console.log('orders before insert', orders);
         orders.push(orderItem);
