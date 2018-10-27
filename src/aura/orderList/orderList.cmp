@@ -28,10 +28,10 @@
                 </div>
             </lightning:layoutItem>
             <lightning:layoutItem flexibility="auto" padding="around-small">
-                <lightning:button value="Clear" iconName="action:delete" label="Clear the Basket" variant="destructive"/>
+                <lightning:button value="Clear" iconName="action:delete" label="Clear the Basket" variant="destructive" onclick="{!c.clearCart}"/>
             </lightning:layoutItem>
             <lightning:layoutItem flexibility="shrink" padding="around-small">
-                <lightning:button value="Order Now" iconName="action:approval" label="ORDER NOW" variant="success" class=""/>
+                <lightning:button value="Order Now" iconName="action:approval" label="ORDER NOW" variant="success" />
             </lightning:layoutItem>
         </lightning:layout>
     </aura:if>

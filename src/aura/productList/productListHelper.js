@@ -46,5 +46,34 @@
             }
         });
         $A.enqueueAction(action);
+    },
+
+    addToCart: function(component, event){
+        console.log('Handling add to cart event...');
+        var orderItem = event.getParam('orderItem');
+        console.log('orderItem: ', orderItem);
+        var orders = component.get('v.orders');
+        console.log('orders ', orders);
+        var isProcessed = false;
+        orders.forEach( function (order) {
+            if (order.Product__c === orderItem.Product__c) {
+                order.Quantity__c = Number.parseInt(order.Quantity__c) + Number.parseInt(orderItem.Quantity__c);
+                isProcessed = true;
+            }
+            console.log(order.Product__c === orderItem.Product__c);
+        });
+        if (!isProcessed === true) {
+            orders.push(orderItem);
+        }
+        console.log('Performing for each check...');
+        component.set('v.orders', orders);
+        console.log('orders after insert ', component.get('v.orders'));
+    },
+
+    resetInputField: function (event) {
+        var inputField = event.getSource().find('inputNumber');
+        console.log('input field value before reset', inputField.get('v.value'));
+        inputField.set('v.value', '');
+        console.log('input field value after reset', inputField.get('v.value'));
     }
 });
