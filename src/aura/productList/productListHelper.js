@@ -60,7 +60,6 @@
                 order.Quantity__c = Number.parseInt(order.Quantity__c) + Number.parseInt(orderItem.Quantity__c);
                 isProcessed = true;
             }
-            console.log(order.Product__c === orderItem.Product__c);
         });
         if (!isProcessed === true) {
             orders.push(orderItem);

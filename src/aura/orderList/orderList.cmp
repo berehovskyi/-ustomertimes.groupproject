@@ -2,7 +2,7 @@
  - Created by oberegovskyi on 24-Oct-18.
  -->
 
-<aura:component description="orderList">
+<aura:component description="orderList" controller="OrderController">
     <aura:attribute name="childOrders" type="Order_Line_Item__c[]"/>
     <aura:attribute name="totalPrice" type="Integer"/>
 
@@ -31,7 +31,7 @@
                 <lightning:button value="Clear" iconName="action:delete" label="Clear the Basket" variant="destructive" onclick="{!c.clearCart}"/>
             </lightning:layoutItem>
             <lightning:layoutItem flexibility="shrink" padding="around-small">
-                <lightning:button value="Order Now" iconName="action:approval" label="ORDER NOW" variant="success" />
+                <lightning:button value="Order Now" iconName="action:approval" label="ORDER NOW" variant="success" onclick="{!c.saveOrder}"/>
             </lightning:layoutItem>
         </lightning:layout>
     </aura:if>

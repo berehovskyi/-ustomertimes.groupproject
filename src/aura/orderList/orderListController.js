@@ -11,7 +11,10 @@
     },
 
     clearCart: function (component, event, helper) {
-        console.log('Clearing the cart...');
-        component.set('v.childOrders', []);
+        helper.clearCart(component);
+    },
+
+    saveOrder: function (component, event, helper) {
+        helper.saveOrder(component, event);
     }
 });
