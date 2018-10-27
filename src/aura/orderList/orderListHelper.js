@@ -30,6 +30,7 @@
     },
 
     saveOrder: function (component, event) {
+        var self  = this;
         console.log('Saving order into Database');
         var childOrders = component.get('v.childOrders');
         console.log('Orders to insert into Database', childOrders);
@@ -54,8 +55,9 @@
             var state = response.getState();
             if (state === 'SUCCESS') {
                 console.log('Order Line Items Has Been Saved Successfully', state);
+                self.clearCart(component);
             } else {
-                console.log('Failed with state: ', state);
+                console.log('Failed with state: ', response.getReturnValue());
             }
         });
         $A.enqueueAction(saveOrderMethod);
