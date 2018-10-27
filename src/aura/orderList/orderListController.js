@@ -15,6 +15,6 @@
     },
 
     saveOrder: function (component, event, helper) {
-        helper.saveOrder(component, event);
+        helper.saveOrder(component);
     }
 });
