@@ -17,6 +17,7 @@
     recalculateTotalPrice: function (component, event, helper) {
         var totalPrice = 0;
         var childOrders = component.get('v.childOrders');
+        console.log('Handling recalc total price event');
 
         childOrders.forEach(function (order) {
             totalPrice += order.Price__c * order.Quantity__c;

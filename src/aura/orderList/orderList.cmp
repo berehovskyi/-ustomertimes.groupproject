@@ -7,6 +7,7 @@
     <aura:attribute name="totalPrice" type="Integer"/>
 
     <aura:handler name="deleteFromOrder" event="c:deleteFromOrderEvent" action="{!c.handleDeleteFromOrder}"/>
+    <aura:handler name="updateItemQuantity" event="c:updateItemQuantityEvent" action="{!c.recalculateTotalPrice}"/>
     <aura:handler name="change" value="{!v.childOrders}" action="{!c.recalculateTotalPrice}"/>
 
     <aura:if isTrue="{!v.childOrders.length}">

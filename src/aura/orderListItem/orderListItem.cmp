@@ -5,7 +5,9 @@
 <aura:component description="orderListItem">
     <aura:attribute name="item" type="Order_Line_Item__c"/>
     <aura:attribute name="index" type="String"/>
+
     <aura:registerEvent name="deleteFromOrder" type="c:deleteFromOrderEvent"/>
+    <aura:registerEvent name="updateItemQuantity" type="c:updateItemQuantityEvent"/>
 
     <lightning:card>
         <lightning:layout multipleRows="true">
@@ -40,7 +42,7 @@
             </lightning:layoutItem>
             <lightning:layoutItem size="3" padding="around-small">
                 <lightning:input type="number" name="quantity" variant="label-hidden" label="quantity"
-                                 value="{!v.item.Quantity__c}" min="1" max="9999"/>
+                                 value="{!v.item.Quantity__c}" min="1" max="9999" onchange="{!c.fireUpdateItemQuantityEvent}"/>
             </lightning:layoutItem>
             <lightning:layoutItem size="6" class="slds-grid_align-end" padding="around-small">
                 <!--Optional element can be set here-->

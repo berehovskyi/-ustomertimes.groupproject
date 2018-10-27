@@ -15,12 +15,8 @@
         </p>
         <img src="{! '/sfc/servlet.shepherd/version/download/' + v.item.ContentDocumentLinks[0].ContentDocument.LatestPublishedVersionId}"/>
         <p class="slds-p-around--small">
-            <p>
-                <lightning:formattedText value="{!'Screen Size: ' + v.item.Screen_Size__c + '&Prime;'}"/>
-            </p>
-            <p>
-                <lightning:formattedText value="{!'Resolution: ' + v.item.Resolution__c}"/>
-            </p>
+            <p><lightning:formattedText value="{!'Screen Size: ' + v.item.Screen_Size__c + '&Prime;'}"/></p>
+            <p><lightning:formattedText value="{!'Resolution: ' + v.item.Resolution__c}"/></p>
         </p>
         <p class="slds-p-around--small slds-align_absolute-center">
             <c:modalDescription brand="{!v.item.Brand__c}"

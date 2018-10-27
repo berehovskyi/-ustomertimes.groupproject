@@ -1,0 +1,6 @@
+<!--
+ - Created by oberegovskyi on 27-Oct-18.
+ -->
+
+<aura:event type="COMPONENT" description="updateItemQuantityEvent">
+</aura:event>

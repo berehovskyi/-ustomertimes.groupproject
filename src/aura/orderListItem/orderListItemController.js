@@ -10,5 +10,11 @@
         console.log('componentEvent inside remove from Order', componentEvent);
         componentEvent.setParams({'index': itemIndex});
         componentEvent.fire();
+    },
+
+    fireUpdateItemQuantityEvent: function (component, event, helper) {
+        var componentEvent = component.getEvent('updateItemQuantity');
+        console.log('fireUpdateItemQuantityEvent has been fired!!!');
+        componentEvent.fire();
     }
 });
