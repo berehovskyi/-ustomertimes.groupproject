@@ -2,7 +2,7 @@
  * Created by Yehor Dobrovolskyi on 26.10.2018.
  */
 
-trigger ContentDocumentLinkTrigger on ContentDocumentLink (before insert/*, before update, before delete, after insert, after update, after delete, after undelete*/) {
+trigger ContentDocumentLinkTrigger on ContentDocumentLink (before insert, before update/*, before delete, after insert, after update, after delete, after undelete*/) {
 
     ContentDocumentLinkTriggerHandler handler = new ContentDocumentLinkTriggerHandler();
 
@@ -10,9 +10,9 @@ trigger ContentDocumentLinkTrigger on ContentDocumentLink (before insert/*, befo
         if (Trigger.isInsert) {
             handler.onBeforeInsert(Trigger.new);
         }
-//        if (Trigger.isUpdate) {
-//            handler.onBeforeUpdate(Trigger.new, Trigger.oldMap);
-//        }
+        if (Trigger.isUpdate) {
+            handler.onBeforeUpdate(Trigger.new, Trigger.oldMap);
+        }
 //        if (Trigger.isDelete) {
 //            handler.onBeforeDelete(Trigger.old);
 //        }

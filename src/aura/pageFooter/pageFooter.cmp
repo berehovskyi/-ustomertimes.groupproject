@@ -25,7 +25,7 @@
             </lightning:layoutItem>
             <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
                 <p class="slds-text-heading--medium slds-p-vertical--medium"><span>We're here to help</span></p>
-                <p ><span>Repair Support Plans</span></p>
+                <p><span>Repair Support Plans</span></p>
                 <p><span>Customer services</span></p>
                 <p><span>Repairs</span></p>
                 <p><span>Buying guides</span></p>

@@ -2,30 +2,32 @@
  * Created by oberegovskyi on 28-Oct-18.
  */
 ({
-    onNext : function(component, event, helper) {
-        var pageNumber = component.get("v.currentPageNumber");
-        component.set("v.currentPageNumber", pageNumber+1);
-        helper.buildData(component, helper);
+    onFirst: function (component, event, helper) {
+        component.set('v.currentPage', 1);
     },
 
-    onPrev : function(component, event, helper) {
-        var pageNumber = component.get("v.currentPageNumber");
-        component.set("v.currentPageNumber", pageNumber-1);
-        helper.buildData(component, helper);
+    onLast: function (component, event, helper) {
+        let totalPages = component.get('v.totalPages');
+        console.log('Total Pages ', totalPages);
+        component.set('v.currentPage', totalPages);
     },
 
-    processMe : function(component, event, helper) {
-        component.set("v.currentPageNumber", parseInt(event.target.name));
-        helper.buildData(component, helper);
+    onPrevious: function (component, event, helper) {
+        let currentPage = component.get('v.currentPage');
+        console.log('Previous page ', currentPage - 1);
+        component.set('v.currentPage', currentPage - 1);
     },
 
-    onFirst : function(component, event, helper) {
-        component.set("v.currentPageNumber", 1);
-        helper.buildData(component, helper);
+    onNext: function (component, event, helper) {
+        let currentPage = component.get('v.currentPage');
+        console.log('Next page ', currentPage + 1);
+        component.set('v.currentPage', currentPage + 1);
     },
 
-    onLast : function(component, event, helper) {
-        component.set("v.currentPageNumber", component.get("v.totalPages"));
-        helper.buildData(component, helper);
+    onPage: function (component, event, helper) {
+        let pageButton = event.getSource();
+        let value = pageButton.get('v.value');
+        console.log('Navigate to page ', value);
+        component.set('v.currentPage', parseInt(value));
     },
-})
+});

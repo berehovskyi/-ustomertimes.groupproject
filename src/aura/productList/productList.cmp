@@ -7,23 +7,42 @@
     <aura:attribute name="category" type="String"/>
     <aura:attribute name="countItemsByCategory" type="String[]"/>
     <aura:attribute name="orders" type="Order_Line_Item__c[]"/>
+    <aura:attribute name="currentPage" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="6"/>
+    <aura:attribute name="totalPages" type="Integer" default="1"/>
+    <aura:attribute name="startIndex" type="Integer" default="0"/>
+    <aura:attribute name="endIndex" type="Integer" default="0"/>
+    <aura:attribute name="pageList" type="Integer[]"/>
 
     <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
     <aura:handler name="categoryUpdated" event="c:categoryUpdatedEvent" action="{!c.handleUpdateCategory}"/>
     <aura:handler name="addToCart" event="c:addToCartEvent" action="{!c.handleAddToCart}"/>
-
+    <aura:handler name="change" value="{!v.currentPage}" action="{!c.showCurrentPage}"/>
 
     <lightning:layout>
         <lightning:layoutItem size="8">
-            <c:paginationBar products="{!v.items}"/>
             <c:spinner aura:id="spinner" alternativeText="Querying Product Data..."/>
             <c:productHeader countCategoryItems="{!v.countItemsByCategory}"/>
+            <lightning:layoutItem>
+                <c:paginationBar pageSize="{!v.pageSize}"
+                                 currentPage="{!v.currentPage}"
+                                 totalPages="{!v.totalPages}"
+                                 pageList="{!v.pageList}"
+                />
+            </lightning:layoutItem>
             <lightning:layout multipleRows="true">
-                <aura:iteration items="{!v.items}" var="item">
+                <aura:iteration aura:id="itemIterator" items="{!v.items}" var="item" start="{!v.startIndex}" end="{!v.endIndex}">
                     <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
                         <c:productListItem item="{!item}"/>
                     </lightning:layoutItem>
                 </aura:iteration>
+                <lightning:layoutItem>
+                    <c:paginationBar pageSize="{!v.pageSize}"
+                                     currentPage="{!v.currentPage}"
+                                     totalPages="{!v.totalPages}"
+                                     pageList="{!v.pageList}"
+                    />
+                </lightning:layoutItem>
             </lightning:layout>
         </lightning:layoutItem>
         <lightning:layoutItem size="4">

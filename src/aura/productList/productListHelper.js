@@ -19,6 +19,28 @@
             ];
                 component.set('v.countItemsByCategory', countItemsByCategory);
                 console.log(countItemsByCategory);
+
+
+                let pageSize = component.get('v.pageSize');
+                console.log('pageSize ', pageSize);
+                let itemsSize = Object.keys(responseMap).length;
+                console.log('itemsSize ', itemsSize);
+                let totalPages = Math.ceil(itemsSize/pageSize);
+                console.log('totalPages ', totalPages);
+                component.set('v.currentPage', 1);
+                component.set('v.totalPages', totalPages);
+                component.set('v.startIndex', 0);
+                component.set('v.endIndex', pageSize);
+
+                let pageList = [];
+                for (let i = 1; i <= totalPages; i++){
+                    pageList.push(i);
+                }
+                console.log(pageList);
+
+                component.set('v.pageList', pageList);
+
+
                 console.log(response.getReturnValue());
             } else {
                 console.log('Failed with state: ', state);
@@ -28,7 +50,7 @@
         $A.enqueueAction(action);
     },
 
-    updateCategoryEventAttr: function (component, event) {
+    updateCategory: function (component, event) {
         let category = event.getParam('category');
         component.set('v.category', category);
         console.log('Current category ', category);
@@ -51,8 +73,32 @@
         action.setCallback(this, function (response) {
             let state = response.getState();
             if (state === 'SUCCESS') {
-                component.set('v.items', response.getReturnValue());
+                let responseMap = response.getReturnValue();
+                component.set('v.items', responseMap);
                 console.log(response.getReturnValue());
+
+
+                let pageSize = component.get('v.pageSize');
+                console.log('pageSize ', pageSize);
+                let itemsSize = Object.keys(responseMap).length;
+                console.log('itemsSize ', itemsSize);
+                let totalPages = Math.ceil(itemsSize/pageSize);
+                console.log('totalPages ', totalPages);
+                component.set('v.currentPage', 1);
+                component.set('v.totalPages', totalPages);
+                component.set('v.startIndex', 0);
+                component.set('v.endIndex', pageSize);
+
+
+                let pageList = [];
+                for (let i = 1; i <= totalPages; i++){
+                    pageList.push(i);
+                }
+                console.log(pageList);
+
+                component.set('v.pageList', pageList);
+
+
             } else {
                 console.log('Failed with state: ', state);
             }
@@ -87,5 +133,31 @@
         console.log('input field value before reset', inputField.get('v.value'));
         inputField.set('v.value', '');
         console.log('input field value after reset', inputField.get('v.value'));
+    },
+
+    showCurrentPage: function (component) {
+        let currentPage = component.get('v.currentPage');
+        console.log('currentPage ', currentPage);
+        let pageSize = component.get('v.pageSize');
+        console.log('pageSize ', pageSize);
+        let itemsSize = component.get('v.items').length;
+        console.log('itemsSize ', itemsSize);
+        let totalPages = Math.ceil(itemsSize/pageSize);
+        console.log('totalPages ', totalPages);
+        component.set('v.totalPages', totalPages);
+        let startIndex = pageSize * (currentPage - 1);
+        console.log('startIndex ', startIndex);
+        let endIndex = pageSize * currentPage;
+        console.log('endIndex ', endIndex);
+        component.set('v.startIndex', startIndex);
+        component.set('v.endIndex', endIndex);
+
+        let pageList = [];
+        for (let i = 1; i <= totalPages; i++){
+            pageList.push(i);
+        }
+        console.log(pageList);
+        component.set('v.pageList', pageList);
+
     }
 });

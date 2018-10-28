@@ -8,8 +8,9 @@ public with sharing class ContentDocumentLinkTriggerHandler{
         ContentDocumentLinkService.setDocumentVisibilityForAllUsers(newRecords);
     }
 
-//    public void onBeforeUpdate(List<ContentDocumentLink> newRecords, Map<Id, Account> oldRecordsMap) {
-//    }
+    public void onBeforeUpdate(List<ContentDocumentLink> newRecords, Map<Id, ContentDocumentLink> oldRecordsMap) {
+        ContentDocumentLinkService.setDocumentVisibilityForAllUsers(newRecords);
+    }
 //
 //    public void onBeforeDelete(List<ContentDocumentLink> oldRecords) {
 //    }
