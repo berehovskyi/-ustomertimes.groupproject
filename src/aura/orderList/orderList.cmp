@@ -21,8 +21,8 @@
                                      index="{!indexVar}"/>
                 </lightning:layoutItem>
             </aura:iteration>
-            <lightning:layoutItem flexibility="auto" padding="around-small">
-                <div class="slds-float--right slds-border--top slds-text-heading--large slds-text-color_destructive">
+            <lightning:layoutItem size="12" flexibility="auto" padding="around-small">
+                <div class="slds-float--right slds-border--top slds-text-heading--medium slds-text-color_destructive">
                     <lightning:formattedText value="Total Price: "/>
                     <lightning:formattedNumber value="{!v.totalPrice}" style="currency" currencyCode="EUR"/>
                 </div>
