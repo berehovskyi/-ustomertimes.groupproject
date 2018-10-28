@@ -2,7 +2,7 @@
  * Created by oberegovskyi on 26-Oct-18.
  */
 ({
-    loadAllData: function(component){
+    loadAllData: function (component) {
         var action = component.get('c.getAllItems');
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -13,8 +13,9 @@
                     responseMap.filter(value => value.Category__c === 'Universal').length,
                     responseMap.filter(value => value.Category__c === 'Game').length,
                     responseMap.filter(value => value.Category__c === 'Business').length,
-                    responseMap.filter(value => value.Category__c === 'Budget').length
-                ];
+                    responseMap.filter(value => value.Category__c === 'Budget').length,
+                    Object.keys(responseMap).length
+            ];
                 component.set('v.countItemsByCategory', countItemsByCategory);
                 console.log(countItemsByCategory);
                 console.log(response.getReturnValue());
@@ -32,10 +33,18 @@
     },
 
     loadDataByCategory: function (component) {
-        var action = component.get('c.getItemsByCategory');
-        action.setParams({
-            category: component.get('v.category')
-        });
+        var category = component.get('v.category');
+        console.log('current category inside loadByData ', category);
+        var action;
+        if (category === 'All Laptops') {
+            action = component.get('c.getAllItems');
+            console.log('get All Items');
+        } else {
+            action = component.get('c.getItemsByCategory');
+            action.setParams({
+                category: component.get('v.category')
+            });
+        }
         action.setCallback(this, function (response) {
             var state = response.getState();
             if (state === 'SUCCESS') {
@@ -48,14 +57,14 @@
         $A.enqueueAction(action);
     },
 
-    addToCart: function(component, event){
+    addToCart: function (component, event) {
         console.log('Handling add to cart event...');
         var orderItem = event.getParam('orderItem');
         console.log('orderItem: ', orderItem);
         var orders = component.get('v.orders');
         console.log('orders ', orders);
         var isProcessed = false;
-        orders.forEach( function (order) {
+        orders.forEach(function (order) {
             if (order.Product__c === orderItem.Product__c) {
                 order.Quantity__c = Number.parseInt(order.Quantity__c) + Number.parseInt(orderItem.Quantity__c);
                 isProcessed = true;

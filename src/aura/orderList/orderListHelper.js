@@ -30,7 +30,7 @@
     },
 
     showThankfulToast : function(component, event, helper) {
-        var toastEvent = $A.get("e.force:showToast");
+        var toastEvent = $A.get('e.force:showToast');
         toastEvent.setParams({
             mode: 'sticky',
             type: 'success',
@@ -48,7 +48,7 @@
     },
 
     showErrorToast: function(response) {
-        var toastEvent = $A.get("e.force:showToast");
+        var toastEvent = $A.get('e.force:showToast');
         toastEvent.setParams({
             mode: 'sticky',
             type: 'error',
@@ -63,9 +63,7 @@
         console.log('Saving order into Database');
         var childOrders = component.get('v.childOrders');
         console.log('Orders to insert into Database', childOrders);
-
         var orderLineItemsToSave = [];
-
         childOrders.forEach(function (orderLineItem) {
            orderLineItemsToSave.push({
                'sobjectType': 'Order_Line_Item__c',

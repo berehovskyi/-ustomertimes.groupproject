@@ -5,24 +5,25 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
     <lightning:carousel disableAutoScroll="false" disableAutoRefresh="false">
         <lightning:carouselImage
-                src = "{!$Resource.banner + '/3.jpg'}"
-                header = "First Card"
-                description = "First card description."
+                src = "{!$Resource.highResBanners + '/1.jpg'}"
+                header = "WELCOME TO CUSTOMER TIMES ONLINE STORE"
+                description = "Designed to help you to find be the best laptops, with the highest quality resolution displays, exceptional build quality, unique materials and powerful features. "
                 alternativeText = "First card accessible description."
                 href = "https://www.salesforce.com">
         </lightning:carouselImage>
         <lightning:carouselImage
-                src = "{!$Resource.banner + '/4.jpg'}"
-                header = "Second Card"
-                description = "Second card description."
-                alternativeText = "Second card accessible description."
+                src = "{!$Resource.highResBanners + '/2.jpg'}"
+                header = "GIGABIT LAPTOPS"
+                description = "Unleash your gaming dominance with NVIDIA® GeForce® GTX 10-Series GPUs that turn your mobile rig into a sleek, high-performance gaming machine."
+                alternativeText = "Gigabit laptops"
                 href = "https://www.salesforce.com">
         </lightning:carouselImage>
         <lightning:carouselImage
-                src = "{!$Resource.banner + '/5.jpg'}"
-                header = "Third Card"
-                description = "Third card description."
-                alternativeText = "Third card accessible description."
+                src = "{!$Resource.highResBanners + '/3.jpg'}"
+                header = "RICH THE HEIGHTS"
+                description = "As a world leading gaming brand, MSI is the most trusted name in gaming and eSports. We stand by our principles of breakthroughs in design,
+                               the pursuit of excellence, and technological innovation."
+                alternativeText = "Msi gaming laptops"
                 href = "https://www.salesforce.com">
         </lightning:carouselImage>
     </lightning:carousel>

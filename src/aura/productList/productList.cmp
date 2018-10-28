@@ -17,7 +17,7 @@
             <c:productHeader countCategoryItems="{!v.countItemsByCategory}"/>
             <lightning:layout multipleRows="true">
                 <aura:iteration items="{!v.items}" var="item">
-                    <lightning:layoutItem size="4" flexibility="no-flex" padding="around-small">
+                    <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
                         <c:productListItem item="{!item}"/>
                     </lightning:layoutItem>
                 </aura:iteration>

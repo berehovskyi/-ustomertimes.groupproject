@@ -4,11 +4,11 @@
 
 <aura:component description="productHeader">
     <aura:attribute name="countCategoryItems" type="Integer[]"/>
-    <aura:attribute name="currentCategory" type="String"/>
+    <aura:attribute name="currentCategory" type="String" default="All Laptops"/>
     <aura:registerEvent name="categoryUpdated" type="c:categoryUpdatedEvent"/>
 
-    <lightning:layout>
-        <lightning:layoutItem size="12">
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="12" flexibility="auto" padding="around-medium">
             <lightning:card>
                 <aura:set attribute="title">
                     <h1 class="slds-text-heading--large slds-align_absolute-center slds-border_bottom">LAPTOPS</h1>
@@ -20,8 +20,6 @@
                 </p>
             </lightning:card>
         </lightning:layoutItem>
-    </lightning:layout>
-    <lightning:layout class="slds-p-around--small">
          <lightning:layoutItem size="3" flexibility="auto" padding="around-medium">
             <lightning:card>
                 <img src="/sfc/servlet.shepherd/version/download/0681t000000cUiEAAU"/>
@@ -72,6 +70,14 @@
                                     content="If you need a laptop for home, work, or school—and you can’t afford to spend a lot—you can find a good one in this section.
                                     They’re ideal for K–12 students, people on a strict budget, and people who use their computers mostly at home in the evenings for schoolwork, Web
                                     browsing, managing a budget, or watching Netflix."/>
+            </lightning:card>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12" flexibility="auto" padding="around-medium">
+            <lightning:card>
+                <lightning:button class="slds-align_absolute-center"
+                                  variant="{!v.currentCategory == 'All Laptops' ? 'brand' : 'neutral'}" value="All Laptops"
+                                  label="{!'All Laptops (' + v.countCategoryItems[4] + ')'}"
+                                  onclick="{!c.onUpdateCategory}"/>
             </lightning:card>
         </lightning:layoutItem>
     </lightning:layout>
