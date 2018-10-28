@@ -7,7 +7,7 @@
     <aura:attribute name="currentCategory" type="String" default="All Laptops"/>
     <aura:registerEvent name="categoryUpdated" type="c:categoryUpdatedEvent"/>
 
-    <lightning:layout multipleRows="true">
+    <lightning:layout multipleRows="true" class="slds-m-bottom--large">
         <lightning:layoutItem size="12" flexibility="auto" padding="around-medium">
             <lightning:card>
                 <aura:set attribute="title">
@@ -78,6 +78,8 @@
                                   variant="{!v.currentCategory == 'All Laptops' ? 'brand' : 'neutral'}" value="All Laptops"
                                   label="{!'All Laptops (' + v.countCategoryItems[4] + ')'}"
                                   onclick="{!c.onUpdateCategory}"/>
+                <lightning:helptext class="slds-align_absolute-center" iconName="utility:chevrondown"
+                                    content="Show the full list of available laptops."/>
             </lightning:card>
         </lightning:layoutItem>
     </lightning:layout>

@@ -12,8 +12,10 @@
     <aura:handler name="categoryUpdated" event="c:categoryUpdatedEvent" action="{!c.handleUpdateCategory}"/>
     <aura:handler name="addToCart" event="c:addToCartEvent" action="{!c.handleAddToCart}"/>
 
+
     <lightning:layout>
         <lightning:layoutItem size="8">
+            <c:paginationBar products="{!v.items}"/>
             <c:spinner aura:id="spinner" alternativeText="Querying Product Data..."/>
             <c:productHeader countCategoryItems="{!v.countItemsByCategory}"/>
             <lightning:layout multipleRows="true">
