@@ -3,19 +3,19 @@
  -->
 
 <aura:component description="orderList" controller="OrderController">
-    <aura:attribute name="childOrders" type="Order_Line_Item__c[]"/>
+    <aura:attribute name="orderLineItems" type="Order_Line_Item__c[]"/>
     <aura:attribute name="totalPrice" type="Integer"/>
 
     <aura:handler name="deleteFromOrder" event="c:deleteFromOrderEvent" action="{!c.handleDeleteFromOrder}"/>
     <aura:handler name="updateItemQuantity" event="c:updateItemQuantityEvent" action="{!c.recalculateTotalPrice}"/>
-    <aura:handler name="change" value="{!v.childOrders}" action="{!c.recalculateTotalPrice}"/>
+    <aura:handler name="change" value="{!v.orderLineItems}" action="{!c.recalculateTotalPrice}"/>
 
-    <aura:if isTrue="{!v.childOrders.length}">
+    <aura:if isTrue="{!v.orderLineItems.length}">
         <lightning:layout multipleRows="true" class="slds-m-around--large">
             <lightning:formattedText value="Please review your basket" class="slds-text-heading--large slds-text-color--error slds-align_absolute-center"/>
             <lightning:formattedText value="Select from the options below for your chosen items:"
                                      class="slds-p-around--small slds-text-body_regular slds-align_absolute-center"/>
-            <aura:iteration items="{!v.childOrders}" var="order" indexVar="indexVar">
+            <aura:iteration items="{!v.orderLineItems}" var="order" indexVar="indexVar">
                 <lightning:layoutItem flexibility="auto" padding="around-small">
                     <c:orderListItem item="{!order}"
                                      index="{!indexVar}"/>

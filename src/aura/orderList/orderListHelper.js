@@ -6,18 +6,18 @@
         console.log('Handling removing item From Order...');
         let orderToDeleteIndex = event.getParam('index');
         console.log('Index of order to delete: ', orderToDeleteIndex);
-        let childOrders = component.get('v.childOrders');
-        console.log('childOrders before deletion: ', childOrders);
-        childOrders.splice(orderToDeleteIndex, 1);
-        console.log('childOrders after deletion: ', childOrders);
-        component.set('v.childOrders', childOrders);
+        let orderLineItems = component.get('v.orderLineItems');
+        console.log('orderLineItems before deletion: ', orderLineItems);
+        orderLineItems.splice(orderToDeleteIndex, 1);
+        console.log('orderLineItems after deletion: ', orderLineItems);
+        component.set('v.orderLineItems', orderLineItems);
     },
 
     recalculateTotalPrice: function (component) {
         console.log('Handling recalc total price event...');
         let totalPrice = 0;
-        let childOrders = component.get('v.childOrders');
-        childOrders.forEach(function (orderLineItem) {
+        let orderLineItems = component.get('v.orderLineItems');
+        orderLineItems.forEach(function (orderLineItem) {
             totalPrice += orderLineItem.Price__c * orderLineItem.Quantity__c;
         });
         console.log('total price: ', totalPrice);
@@ -26,7 +26,7 @@
 
     clearCart: function (component) {
         console.log('Clearing the cart...');
-        component.set('v.childOrders', []);
+        component.set('v.orderLineItems', []);
     },
 
     showThankfulToast : function(component, event, helper) {
@@ -61,10 +61,10 @@
     saveOrder: function (component) {
         let self  = this;
         console.log('Saving order into Database');
-        let childOrders = component.get('v.childOrders');
-        console.log('Orders to insert into Database', childOrders);
+        let orderLineItems = component.get('v.orderLineItems');
+        console.log('Orders to insert into Database', orderLineItems);
         let orderLineItemsToSave = [];
-        childOrders.forEach(function (orderLineItem) {
+        orderLineItems.forEach(function (orderLineItem) {
            orderLineItemsToSave.push({
                'sobjectType': 'Order_Line_Item__c',
                'Product__c': orderLineItem.Product__c,
