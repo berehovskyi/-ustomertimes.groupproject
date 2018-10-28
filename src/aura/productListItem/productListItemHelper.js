@@ -3,15 +3,15 @@
  */
 ({
     addToCart: function (component) {
-        var componentEvent = component.getEvent('addToCart');
-        var item = component.get("v.item");
-        var inputNumber = component.find('inputNumber').get('v.value');
+        let componentEvent = component.getEvent('addToCart');
+        let item = component.get('v.item');
+        let inputNumber = component.find('inputNumber').get('v.value');
         if (inputNumber === '') {
             inputNumber = 1;
         }
         console.log('inputNumber is: ', inputNumber);
         componentEvent.setParams({
-            "orderItem": {
+            'orderItem': {
                 'sobjectType': 'Order_Line_Item__c',
                 'Product__c': item.Id,
                 'Name': item.Name,

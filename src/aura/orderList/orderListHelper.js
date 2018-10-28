@@ -4,9 +4,9 @@
 ({
     deleteFromOrder: function (component, event) {
         console.log('Handling removing item From Order...');
-        var orderToDeleteIndex = event.getParam("index");
+        let orderToDeleteIndex = event.getParam('index');
         console.log('Index of order to delete: ', orderToDeleteIndex);
-        var childOrders = component.get('v.childOrders');
+        let childOrders = component.get('v.childOrders');
         console.log('childOrders before deletion: ', childOrders);
         childOrders.splice(orderToDeleteIndex, 1);
         console.log('childOrders after deletion: ', childOrders);
@@ -15,8 +15,8 @@
 
     recalculateTotalPrice: function (component) {
         console.log('Handling recalc total price event...');
-        var totalPrice = 0;
-        var childOrders = component.get('v.childOrders');
+        let totalPrice = 0;
+        let childOrders = component.get('v.childOrders');
         childOrders.forEach(function (orderLineItem) {
             totalPrice += orderLineItem.Price__c * orderLineItem.Quantity__c;
         });
@@ -30,7 +30,7 @@
     },
 
     showThankfulToast : function(component, event, helper) {
-        var toastEvent = $A.get('e.force:showToast');
+        let toastEvent = $A.get('e.force:showToast');
         toastEvent.setParams({
             mode: 'sticky',
             type: 'success',
@@ -48,7 +48,7 @@
     },
 
     showErrorToast: function(response) {
-        var toastEvent = $A.get('e.force:showToast');
+        let toastEvent = $A.get('e.force:showToast');
         toastEvent.setParams({
             mode: 'sticky',
             type: 'error',
@@ -59,11 +59,11 @@
     },
 
     saveOrder: function (component) {
-        var self  = this;
+        let self  = this;
         console.log('Saving order into Database');
-        var childOrders = component.get('v.childOrders');
+        let childOrders = component.get('v.childOrders');
         console.log('Orders to insert into Database', childOrders);
-        var orderLineItemsToSave = [];
+        let orderLineItemsToSave = [];
         childOrders.forEach(function (orderLineItem) {
            orderLineItemsToSave.push({
                'sobjectType': 'Order_Line_Item__c',
@@ -74,10 +74,10 @@
         });
 
         console.log('Prepared Order Line Items to Saving', orderLineItemsToSave);
-        var saveOrderMethod = component.get('c.saveOrderLineItems');
+        let saveOrderMethod = component.get('c.saveOrderLineItems');
         saveOrderMethod.setParam('orderLineItems', orderLineItemsToSave);
         saveOrderMethod.setCallback(this, function (response) {
-            var state = response.getState();
+            let state = response.getState();
             if (state === 'SUCCESS') {
                 console.log('Order Line Items Has Been Saved Successfully', state);
                 self.clearCart(component);

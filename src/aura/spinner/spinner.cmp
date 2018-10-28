@@ -1,0 +1,24 @@
+<!--
+ - Created by oberegovskyi on 28-Oct-18.
+ -->
+
+<aura:component description="spinner">
+    <aura:attribute name="variant" type="String" default="brand"/>
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="size" type="String" default="medium"/>
+    <aura:attribute name="class" type="String"/>
+    <aura:attribute name="alternativeText" type="String"/>
+    <aura:attribute name="shown" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="processes" type="String[]" default="[]" access="private"/>
+
+    <aura:method name="show" action="{!c.show}">
+        <aura:attribute name="process" type="String" default=""/>
+    </aura:method>
+    <aura:method name="hide" action="{!c.hide}">
+        <aura:attribute name="process" type="String" default=""/>
+    </aura:method>
+
+    <aura:if isTrue="{!v.shown}">
+        <lightning:spinner variant="{!v.variant}" title="{!v.title}" size="{!v.size}" class="{!v.class}" alternativeText="{!v.alternativeText}"/>
+    </aura:if>
+</aura:component>

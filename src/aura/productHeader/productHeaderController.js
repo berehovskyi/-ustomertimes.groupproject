@@ -5,5 +5,4 @@
     onUpdateCategory: function (component, event, helper) {
         helper.updateCategory(component, event);
     }
-
 });

@@ -3,13 +3,14 @@
  */
 ({
     loadAllData: function (component) {
-        var action = component.get('c.getAllItems');
+        let action = component.get('c.getAllItems');
+        component.find('spinner').show('callout');
         action.setCallback(this, function (response) {
-            var state = response.getState();
+            let state = response.getState();
             if (state === 'SUCCESS') {
-                var responseMap = response.getReturnValue();
+                let responseMap = response.getReturnValue();
                 component.set('v.items', responseMap);
-                var countItemsByCategory = [
+                let countItemsByCategory = [
                     responseMap.filter(value => value.Category__c === 'Universal').length,
                     responseMap.filter(value => value.Category__c === 'Game').length,
                     responseMap.filter(value => value.Category__c === 'Business').length,
@@ -22,20 +23,21 @@
             } else {
                 console.log('Failed with state: ', state);
             }
+            component.find('spinner').hide('callout');
         });
         $A.enqueueAction(action);
     },
 
     updateCategoryEventAttr: function (component, event) {
-        var category = event.getParam('category');
+        let category = event.getParam('category');
         component.set('v.category', category);
         console.log('Current category ', category);
     },
 
     loadDataByCategory: function (component) {
-        var category = component.get('v.category');
+        let category = component.get('v.category');
         console.log('current category inside loadByData ', category);
-        var action;
+        let action;
         if (category === 'All Laptops') {
             action = component.get('c.getAllItems');
             console.log('get All Items');
@@ -45,8 +47,9 @@
                 category: component.get('v.category')
             });
         }
+        component.find('spinner').show('callout');
         action.setCallback(this, function (response) {
-            var state = response.getState();
+            let state = response.getState();
             if (state === 'SUCCESS') {
                 component.set('v.items', response.getReturnValue());
                 console.log(response.getReturnValue());
@@ -54,16 +57,17 @@
                 console.log('Failed with state: ', state);
             }
         });
+        component.find('spinner').hide('callout');
         $A.enqueueAction(action);
     },
 
     addToCart: function (component, event) {
         console.log('Handling add to cart event...');
-        var orderItem = event.getParam('orderItem');
+        let orderItem = event.getParam('orderItem');
         console.log('orderItem: ', orderItem);
-        var orders = component.get('v.orders');
+        let orders = component.get('v.orders');
         console.log('orders ', orders);
-        var isProcessed = false;
+        let isProcessed = false;
         orders.forEach(function (order) {
             if (order.Product__c === orderItem.Product__c) {
                 order.Quantity__c = Number.parseInt(order.Quantity__c) + Number.parseInt(orderItem.Quantity__c);
@@ -79,7 +83,7 @@
     },
 
     resetInputField: function (event) {
-        var inputField = event.getSource().find('inputNumber');
+        let inputField = event.getSource().find('inputNumber');
         console.log('input field value before reset', inputField.get('v.value'));
         inputField.set('v.value', '');
         console.log('input field value after reset', inputField.get('v.value'));
