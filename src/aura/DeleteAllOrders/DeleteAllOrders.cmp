@@ -4,7 +4,9 @@
 
 <aura:component description="DeleteAllOrders"
                 controller="OrderDeleteController"
-                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+                implements="force:appHostable,flexipage:availableForAllPageTypes,
+                            flexipage:availableForRecordHome,force:hasRecordId,
+                            forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
     <lightning:button variant="destructive"
                       label="Delete all Orders"
                       title="Destructive action"

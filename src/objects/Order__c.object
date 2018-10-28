@@ -48,7 +48,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -56,7 +56,7 @@
         <fullName>Description__c</fullName>
         <description>Description of the order</description>
         <externalId>false</externalId>
-        <inlineHelpText>Description of the order</inlineHelpText>
+        <inlineHelpText>Additional information about order</inlineHelpText>
         <label>Description</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -135,13 +135,63 @@
         <type>DateTime</type>
     </fields>
     <label>Order</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Timestamp__c</columns>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Order_Total__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>ORD-{000000}</displayFormat>
         <label>Order Name</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Orders</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Order_Total__c</customTabListAdditionalFields>
+        <excludedStandardButtons>OpenListInQuip</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>MassChangeOwner</excludedStandardButtons>
+        <listViewButtons>Delete_All_Orders2</listViewButtons>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Order_Total__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Order_Total__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Order_Total__c</searchFilterFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Order_Total__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Clear_Order</fullName>
+        <availability>online</availability>
+        <description>New</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Clear Orders</masterLabel>
+        <openType>sidebar</openType>
+        <page>OrderListDelete</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Delete_All_Orders2</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Delete All Orders</masterLabel>
+        <openType>sidebar</openType>
+        <page>OrderListDelete</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
 </CustomObject>

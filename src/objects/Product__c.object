@@ -169,6 +169,12 @@
                     <default>false</default>
                     <label>UHD 4k (3.840 × 2.160)</label>
                 </value>
+                <value>
+                    <fullName>QHD (2.560 × 1.440)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>QHD (2.560 × 1.440)</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -187,12 +193,38 @@
         <unique>false</unique>
     </fields>
     <label>Product</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Brand__c</columns>
+        <columns>Price__c</columns>
+        <columns>Quantity__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <label>Product Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Products</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Brand__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Quantity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Price__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Resolution__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Brand__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Resolution__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Price__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Quantity__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>Brand__c</searchFilterFields>
+        <searchFilterFields>Resolution__c</searchFilterFields>
+        <searchFilterFields>Price__c</searchFilterFields>
+        <searchFilterFields>Quantity__c</searchFilterFields>
+        <searchResultsAdditionalFields>Brand__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Resolution__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Price__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Quantity__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

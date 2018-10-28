@@ -3,10 +3,10 @@
  */
 ({
     handleClick : function (component, event, helper) {
-        let action = component.get('c.deleteAllOrders');
+        var action = component.get('c.deleteAllOrders');
         action.setCallback(this, function (data) {
-            let state = data.getState();
-            let toastEvent = $A.get('e.force:showToast');
+            var state = data.getState();
+            var toastEvent = $A.get('e.force:showToast');
             if (state === 'SUCCESS') {
                 toastEvent.setParams({
                     'title': 'Success!',
