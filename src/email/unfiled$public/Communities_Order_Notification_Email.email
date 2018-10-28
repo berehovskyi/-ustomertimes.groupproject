@@ -1,6 +1,6 @@
 Hi {!Receiving_User.FirstName},
 
-Your order has been accepted for {!Community_Name}. Please complete the purchase following the link 
+Your order has been accepted. Please complete the purchase following the link
 
 {!Community_Url}
 

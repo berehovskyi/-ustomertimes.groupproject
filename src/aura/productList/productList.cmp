@@ -14,8 +14,8 @@
 
     <lightning:layout>
         <lightning:layoutItem size="8">
-            <c:productHeader countCategoryItems="{!v.countItemsByCategory}"/>
             <c:spinner aura:id="spinner" alternativeText="Querying Product Data..."/>
+            <c:productHeader countCategoryItems="{!v.countItemsByCategory}"/>
             <lightning:layout multipleRows="true">
                 <aura:iteration items="{!v.items}" var="item">
                     <lightning:layoutItem size="4" flexibility="auto" padding="around-small">

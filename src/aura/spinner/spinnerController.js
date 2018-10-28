@@ -3,7 +3,7 @@
  */
 ({
     show : function(component, event, helper) {
-        helper.hide(component, event);
+        helper.show(component, event);
     },
 
     hide : function(component, event, helper) {
