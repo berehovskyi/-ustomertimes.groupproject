@@ -10,5 +10,5 @@
     <lightning:button variant="destructive"
                       label="Delete all Orders"
                       title="Destructive action"
-                      onclick="{! c.handleClick }"/>
+                      onclick="{!c.handleClick}"/>
 </aura:component>

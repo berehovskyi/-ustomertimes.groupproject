@@ -12,11 +12,9 @@
     <lightning:layoutItem padding="around-small" flexibility="auto">
         <lightning:button label="First" iconName="utility:left" iconPosition="left" onclick="{!c.onFirst}" disabled="{!v.currentPage == 1}"/>
         <lightning:button iconName="utility:chevronleft" iconPosition="left" onclick="{!c.onPrevious}" disabled="{!v.currentPage == 1}"/>
-
         <aura:iteration items="{!v.pageList}" var="item" end="{!v.totalPages}">
                <lightning:button variant="{!v.currentPage == item ? 'brand' : 'neutral'}" onclick="{!c.onPage}" value="{!item}" label="{!item}"/>
         </aura:iteration>
-
         <lightning:button iconName="utility:chevronright" iconPosition="right" disabled="{!v.currentPage == v.totalPages}" onclick="{!c.onNext}"/>
         <lightning:button label="Last" iconName="utility:right" iconPosition="right" disabled="{!v.currentPage == v.totalPages}" onclick="{!c.onLast}"/>
     </lightning:layoutItem>

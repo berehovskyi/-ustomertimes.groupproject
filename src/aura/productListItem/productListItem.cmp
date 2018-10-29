@@ -25,14 +25,13 @@
                                 description="{!v.item.Description__c}"
             />
         </p>
-
         <p class="slds-align-content-center slds-align_absolute-center">
             <lightning:layout>
                 <lightning:layoutItem size="8" padding="around-small">
                     <lightning:button label="Add to Cart" variant="success" iconName="custom:custom93" onclick="{!c.addToCart}"/>
                 </lightning:layoutItem>
                 <lightning:layoutItem size="4" padding="around-small">
-                    <lightning:input aura:id="inputNumber" type="number" name="amount" label="label" variant="label-hidden" min="1" max="9999"/>
+                    <lightning:input aura:id="inputNumber" type="number" value="1" name="amount" label="label" variant="label-hidden" min="1" max="9999"/>
                 </lightning:layoutItem>
             </lightning:layout>
         </p>

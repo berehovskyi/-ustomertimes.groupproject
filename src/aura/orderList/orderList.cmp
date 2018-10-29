@@ -34,6 +34,18 @@
                 <lightning:button value="Order Now" iconName="action:approval" label="ORDER NOW" variant="success" onclick="{!c.saveOrder}"/>
             </lightning:layoutItem>
         </lightning:layout>
+        <!-- Optional basket option for empty one -->
+        <!--<aura:set attribute="else">-->
+            <!--<lightning:card>-->
+                <!--<lightning:layout multipleRows="true" class="slds-m-around&#45;&#45;large">-->
+                    <!--<lightning:formattedText value="Your Shopping Basket is Empty" class="slds-text-heading&#45;&#45;large slds-text-color&#45;&#45;error slds-align_absolute-center"/>-->
+                    <!--<lightning:formattedText value="Your basket is currently empty. It could be you’ve added nothing yet. Or maybe your basket has automatically emptied-->
+                                                    <!--because you’ve not typed anything or clicked on anything for 60 minutes*." -->
+                                             <!--class="slds-p-around&#45;&#45;small slds-text-body_regular slds-align_absolute-center"/>-->
+                    <!--</lightning:layout>-->
+            <!--</lightning:card>-->
+        <!--</aura:set>-->
     </aura:if>
+
 </aura:component>
 

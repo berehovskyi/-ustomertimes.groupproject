@@ -3,7 +3,6 @@
  -->
 
 <aura:component description="locationMap">
-
     <aura:attribute name="mapMarkers" type="Object"/>
     <aura:attribute name="zoomLevel" type="Integer" />
 

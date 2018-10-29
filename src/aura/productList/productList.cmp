@@ -8,7 +8,7 @@
     <aura:attribute name="countItemsByCategory" type="String[]"/>
     <aura:attribute name="orders" type="Order_Line_Item__c[]"/>
     <aura:attribute name="currentPage" type="Integer" default="1"/>
-    <aura:attribute name="pageSize" type="Integer" default="6"/>
+    <aura:attribute name="pageSize" type="Integer" default="12"/>
     <aura:attribute name="totalPages" type="Integer" default="1"/>
     <aura:attribute name="startIndex" type="Integer" default="0"/>
     <aura:attribute name="endIndex" type="Integer" default="0"/>
@@ -43,6 +43,8 @@
                         <c:productListItem item="{!item}"/>
                     </lightning:layoutItem>
                 </aura:iteration>
+            </lightning:layout>
+            <lightning:layout multipleRows="true">
                 <lightning:layoutItem>
                     <c:paginationBar pageSize="{!v.pageSize}"
                                      currentPage="{!v.currentPage}"
