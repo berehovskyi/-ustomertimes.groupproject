@@ -20,13 +20,12 @@
     <aura:handler name="change" value="{!v.currentPage}" action="{!c.showCurrentPage}"/>
     <aura:handler name="change" value="{!v.pageSize}" action="{!c.showCurrentPage}"/>
 
-    {!v.pageSize}
     <lightning:layout>
         <lightning:layoutItem size="8">
             <c:spinner aura:id="spinner" alternativeText="Querying Product Data..."/>
             <c:productHeader countCategoryItems="{!v.countItemsByCategory}"/>
             <lightning:layout>
-                <lightning:layoutItem size="10">
+                <lightning:layoutItem size="10" class="slds-p-top--large">
                     <c:paginationBar pageSize="{!v.pageSize}"
                                      currentPage="{!v.currentPage}"
                                      totalPages="{!v.totalPages}"
@@ -39,7 +38,7 @@
                 </lightning:layoutItem>
             </lightning:layout>
             <lightning:layout multipleRows="true">
-                <aura:iteration aura:id="itemIterator" items="{!v.items}" var="item" start="{!v.startIndex}" end="{!v.endIndex}">
+                <aura:iteration items="{!v.items}" var="item" start="{!v.startIndex}" end="{!v.endIndex}">
                     <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
                         <c:productListItem item="{!item}"/>
                     </lightning:layoutItem>
@@ -53,7 +52,7 @@
                 </lightning:layoutItem>
             </lightning:layout>
         </lightning:layoutItem>
-        <lightning:layoutItem size="4">
+        <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
             <c:orderList orderLineItems="{!v.orders}"/>
         </lightning:layoutItem>
     </lightning:layout>

@@ -9,18 +9,14 @@
     <aura:attribute name="pageList" type="Integer[]"/>
     <aura:attribute name="totalPages" type="Integer"/>
 
-    <lightning:layoutItem padding="around-large" flexibility="auto">
+    <lightning:layoutItem padding="around-small" flexibility="auto">
         <lightning:button label="First" iconName="utility:left" iconPosition="left" onclick="{!c.onFirst}" disabled="{!v.currentPage == 1}"/>
         <lightning:button iconName="utility:chevronleft" iconPosition="left" onclick="{!c.onPrevious}" disabled="{!v.currentPage == 1}"/>
-        <lightning:button label="1" value="1" onclick="{!c.onPage}" variant="{!v.currentPage == 1 ? 'brand' : 'neutral'}"/>
-        <lightning:button variant="neutral" disabled="true" label="..."/>
 
-        <aura:iteration items="{!v.pageList}" var="item" start="1" end="{!v.totalPages - 1}">
+        <aura:iteration items="{!v.pageList}" var="item" end="{!v.totalPages}">
                <lightning:button variant="{!v.currentPage == item ? 'brand' : 'neutral'}" onclick="{!c.onPage}" value="{!item}" label="{!item}"/>
         </aura:iteration>
 
-        <lightning:button variant="neutral" disabled="true" label="..."/>
-             <lightning:button variant="{!v.currentPage == v.totalPages ? 'brand' : 'neutral'}" onclick="{!c.onPage}" value="{!v.totalPages}" label="{!v.totalPages}"/>
         <lightning:button iconName="utility:chevronright" iconPosition="right" disabled="{!v.currentPage == v.totalPages}" onclick="{!c.onNext}"/>
         <lightning:button label="Last" iconName="utility:right" iconPosition="right" disabled="{!v.currentPage == v.totalPages}" onclick="{!c.onLast}"/>
     </lightning:layoutItem>
