@@ -5,15 +5,15 @@
 public without sharing class ContentDocumentLinkService {
 
     public static void setDocumentVisibilityForAllUsers(List<ContentDocumentLink> contentDocumentLinks) {
-        Set<Id> productIds = new Map<Id, Product__c>([
-                SELECT Id
-                FROM Product__c
-        ]).keySet();
         for (ContentDocumentLink docLink : contentDocumentLinks) {
-            if (productIds.contains(docLink.LinkedEntityId)) {
+            if (isRelatedToProduct(docLink)) {
                 docLink.Visibility = 'AllUsers';
             }
         }
+    }
+
+    private static Boolean isRelatedToProduct(ContentDocumentLink link){
+        return link.LinkedEntityId.getSobjectType() == Product__c.SobjectType;
     }
 
 }

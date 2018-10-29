@@ -9,7 +9,6 @@
         if (inputNumber === '') {
             inputNumber = 1;
         }
-        // console.log('inputNumber is: ', inputNumber);
         componentEvent.setParams({
             'orderItem': {
                 'sobjectType': 'Order_Line_Item__c',
@@ -23,6 +22,5 @@
             }
         });
         componentEvent.fire();
-        // console.log('addToCartEvent has fired');
     }
 });
