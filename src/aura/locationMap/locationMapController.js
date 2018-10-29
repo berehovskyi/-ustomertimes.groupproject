@@ -10,8 +10,8 @@
                     City: 'Kyiv',
                     Country: 'Ukraine'
                 },
-                title: 'The White House',
-                description: 'Landmark, historic home & office of the United States president, with tours for visitors.'
+                title: 'Customer Times',
+                description: 'Salesforce Platinum Partner CustomerTimes provide a full range of Salesforce Services. From consulting to development and support.'
             }
         ]);
         component.set('v.zoomLevel', 13);

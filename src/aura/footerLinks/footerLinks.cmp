@@ -1,0 +1,32 @@
+<!--
+ - Created by oberegovskyi on 29-Oct-18.
+ -->
+
+<aura:component description="footerLinks">
+    <lightning:layout>
+        <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
+            <p class="slds-text-heading--medium slds-p-vertical--medium"><span>Customer services</span></p>
+            <p><span>Delivery recycling</span></p>
+            <p><span>Track your order</span></p>
+            <p><span>Computer set up</span></p>
+            <p><span>Recycling</span></p>
+            <p><span>Returns cancellations</span></p>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
+            <p class="slds-text-heading--medium slds-p-vertical--medium"><span>Shopping with PC World</span></p>
+            <p><span>Order online collect in store</span></p>
+            <p><span>Price Promise</span></p>
+            <p><span>Gift cards</span></p>
+            <p><span>Payment credit options</span></p>
+            <p><span>UPDATED: Privacy policy</span></p>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
+            <p class="slds-text-heading--medium slds-p-vertical--medium"><span>We're here to help</span></p>
+            <p><span>Repair Support Plans</span></p>
+            <p><span>Customer services</span></p>
+            <p><span>Repairs</span></p>
+            <p><span>Buying guides</span></p>
+            <p><span>Contact us</span></p>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>
