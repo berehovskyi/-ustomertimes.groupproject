@@ -6,7 +6,7 @@
         let componentEvent = component.getEvent('addToCart');
         let item = component.get('v.item');
         let inputNumber = component.find('inputNumber').get('v.value');
-        if (inputNumber === '') {
+        if (inputNumber === '' || inputNumber <= 0) {
             inputNumber = 1;
         }
         componentEvent.setParams({
