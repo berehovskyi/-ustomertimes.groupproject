@@ -1,0 +1,19 @@
+<!--
+ - Created by oberegovskyi on 29-Oct-18.
+ -->
+
+<aura:component description="itemsPerPage">
+    <aura:attribute name="pageSize" type="Integer"/>
+    <aura:attribute name="currentPage" type="Integer"/>
+
+    <lightning:layout>
+        <lightning:layoutItem padding="around-small" flexibility="no-shrink">
+                <lightning:select class="slds-align-content-center" name="items" value="{!v.pageSize}" label="Items per page" onchange="{!c.setPageSize}">
+                    <option value="6">6</option>
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                    <option value="36">36</option>
+                </lightning:select>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

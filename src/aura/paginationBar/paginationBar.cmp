@@ -9,13 +9,13 @@
     <aura:attribute name="pageList" type="Integer[]"/>
     <aura:attribute name="totalPages" type="Integer"/>
 
-    <lightning:layoutItem padding="around-small" flexibility="auto">
+    <lightning:layoutItem padding="around-large" flexibility="auto">
         <lightning:button label="First" iconName="utility:left" iconPosition="left" onclick="{!c.onFirst}" disabled="{!v.currentPage == 1}"/>
         <lightning:button iconName="utility:chevronleft" iconPosition="left" onclick="{!c.onPrevious}" disabled="{!v.currentPage == 1}"/>
         <lightning:button label="1" value="1" onclick="{!c.onPage}" variant="{!v.currentPage == 1 ? 'brand' : 'neutral'}"/>
         <lightning:button variant="neutral" disabled="true" label="..."/>
 
-        <aura:iteration items="{!v.pageList}" var="item" start="1" end="{!v.pageList.length - 1}">
+        <aura:iteration items="{!v.pageList}" var="item" start="1" end="{!v.totalPages - 1}">
                <lightning:button variant="{!v.currentPage == item ? 'brand' : 'neutral'}" onclick="{!c.onPage}" value="{!item}" label="{!item}"/>
         </aura:iteration>
 

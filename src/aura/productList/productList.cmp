@@ -18,18 +18,26 @@
     <aura:handler name="categoryUpdated" event="c:categoryUpdatedEvent" action="{!c.handleUpdateCategory}"/>
     <aura:handler name="addToCart" event="c:addToCartEvent" action="{!c.handleAddToCart}"/>
     <aura:handler name="change" value="{!v.currentPage}" action="{!c.showCurrentPage}"/>
+    <aura:handler name="change" value="{!v.pageSize}" action="{!c.showCurrentPage}"/>
 
+    {!v.pageSize}
     <lightning:layout>
         <lightning:layoutItem size="8">
             <c:spinner aura:id="spinner" alternativeText="Querying Product Data..."/>
             <c:productHeader countCategoryItems="{!v.countItemsByCategory}"/>
-            <lightning:layoutItem>
-                <c:paginationBar pageSize="{!v.pageSize}"
-                                 currentPage="{!v.currentPage}"
-                                 totalPages="{!v.totalPages}"
-                                 pageList="{!v.pageList}"
-                />
-            </lightning:layoutItem>
+            <lightning:layout>
+                <lightning:layoutItem size="10">
+                    <c:paginationBar pageSize="{!v.pageSize}"
+                                     currentPage="{!v.currentPage}"
+                                     totalPages="{!v.totalPages}"
+                                     pageList="{!v.pageList}"
+                    />
+                </lightning:layoutItem>
+                <lightning:layoutItem size="2">
+                    <c:itemsPerPage pageSize="{!v.pageSize}"
+                                    currentPage="{!v.currentPage}"/>
+                </lightning:layoutItem>
+            </lightning:layout>
             <lightning:layout multipleRows="true">
                 <aura:iteration aura:id="itemIterator" items="{!v.items}" var="item" start="{!v.startIndex}" end="{!v.endIndex}">
                     <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
