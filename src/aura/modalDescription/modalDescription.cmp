@@ -26,10 +26,7 @@
                     </div>
 
                     <footer class="slds-modal__footer">
-                        <lightning:button variant="neutral"
-                                          label="Close"
-                                          title="Close"
-                                          onclick="{!c.closeModal}"/>
+                        <lightning:button variant="neutral" label="Close" title="Close" onclick="{!c.closeModal}"/>
                     </footer>
                 </div>
             </section>

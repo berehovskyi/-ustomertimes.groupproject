@@ -7,6 +7,6 @@
     },
 
     fireUpdateItemQuantityEvent: function (component, event, helper) {
-        helper.fireUpdateItemQuantityEvent(component);
+        helper.fireUpdateItemQuantityEvent(component, event);
     }
 });

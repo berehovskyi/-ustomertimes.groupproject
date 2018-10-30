@@ -9,8 +9,8 @@
         componentEvent.fire();
     },
 
-    fireUpdateItemQuantityEvent: function (component) {
+    fireUpdateItemQuantityEvent: function (component, event) {
         let componentEvent = component.getEvent('updateItemQuantity');
-        componentEvent.fire();
+            componentEvent.fire();
     }
 });
